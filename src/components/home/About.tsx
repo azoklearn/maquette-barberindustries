@@ -41,8 +41,8 @@ export default function About() {
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-primary-blue/20 to-accent-rose/20" />
               <Image
-                src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800&h=1000&fit=crop"
-                alt="Barbier professionnel"
+                src="/raph.jpeg"
+                alt="Raphael - Barber Industries"
                 fill
                 className="object-cover"
               />

@@ -74,6 +74,21 @@ const posts = [
 
 const categories = ['Tous', 'Tendances', 'Conseils', 'Guides', 'Style', 'Produits']
 
+const themes = [
+  {
+    title: 'Comment avoir du volume et de la texture',
+    description: 'Techniques, produits et gestes simples pour donner du relief à vos cheveux.',
+  },
+  {
+    title: 'Comment entretenir ses cheveux bouclés',
+    description: 'Routine, hydratation et erreurs à éviter pour des boucles nettes et définies.',
+  },
+  {
+    title: 'Comment choisir sa coupe',
+    description: 'Adapter sa coiffure à sa morphologie, son style et son quotidien.',
+  },
+]
+
 export default function BlogPage() {
   return (
     <>
@@ -93,8 +108,35 @@ export default function BlogPage() {
               Conseils & <span className="text-gradient">Inspirations</span>
             </h1>
             <p className="text-white/60 text-lg">
-              Tendances, tutoriels, conseils d'experts. Tout pour maîtriser l'art du style masculin.
+              La rubrique dédiée à votre style : volume, texture, barbe, boucles, morphologie… 
+              Des conseils concrets pour sortir du barber avec un look que vous savez entretenir.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Intro Themes */}
+      <section className="py-10 bg-dark">
+        <div className="container-custom px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto card-premium p-6 sm:p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <Tag className="w-5 h-5 text-accent-rose" />
+              <h2 className="font-display text-xl sm:text-2xl font-semibold text-white">
+                Ce que vous allez trouver dans le blog
+              </h2>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {themes.map((theme) => (
+                <div key={theme.title} className="bg-dark-light/60 rounded-2xl p-4">
+                  <p className="text-white font-semibold text-sm mb-2">
+                    {theme.title}
+                  </p>
+                  <p className="text-white/60 text-xs">
+                    {theme.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
