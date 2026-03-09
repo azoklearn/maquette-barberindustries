@@ -4,24 +4,24 @@ import Image from 'next/image'
 
 const galleryImages = [
   {
-    src: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&h=600&fit=crop',
-    alt: 'Coupe moderne',
+    src: '/inspi1.jpeg',
+    alt: 'Inspiration coupe 1 - Barber Industries',
   },
   {
-    src: 'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600&h=800&fit=crop',
-    alt: 'Taille de barbe',
+    src: '/inspi2.jpeg',
+    alt: 'Inspiration coupe 2 - Barber Industries',
   },
   {
-    src: 'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=600&h=600&fit=crop',
-    alt: 'Style urbain',
+    src: '/inspi3.jpeg',
+    alt: 'Inspiration coupe 3 - Barber Industries',
   },
   {
-    src: 'https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&h=800&fit=crop',
-    alt: 'Finitions parfaites',
+    src: '/inspi4.jpeg',
+    alt: 'Inspiration coupe 4 - Barber Industries',
   },
   {
-    src: 'https://images.unsplash.com/photo-1593702288056-7927b442d0fa?w=600&h=600&fit=crop',
-    alt: 'Ambiance barbershop',
+    src: '/inspi5.jpeg',
+    alt: 'Inspiration coupe 5 - Barber Industries',
   },
 ]
 
