@@ -2,8 +2,8 @@
 
 import { Calendar } from 'lucide-react'
 
-// Remplace cette URL par ton vrai lien Calendly
-const CALENDLY_URL = 'https://calendly.com/ton-compte-barber/rdv'
+// Page officielle de prise de rendez-vous Odoo
+const ODOO_APPOINTMENT_URL = 'https://barber-industries.odoo.com/appointment'
 
 export default function ReservationPage() {
   return (
@@ -20,45 +20,45 @@ export default function ReservationPage() {
               Réservation
             </span>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Réservez en <span className="text-gradient">ligne</span>
+              Prenez <span className="text-gradient">rendez-vous</span>
             </h1>
             <p className="text-white/60 text-lg">
-              Choisissez votre créneau en temps réel via Calendly. 
-              Confirmation instantanée, rappel automatique.
+              Choisissez votre type de rendez-vous (Coupe Classique, Coupe Soirée, etc.) 
+              et réservez directement sur notre page officielle.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Calendly Embed */}
+      {/* Odoo Appointment Embed */}
       <section className="section-padding bg-dark">
         <div className="container-custom px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto card-premium p-4 sm:p-6 lg:p-8">
             <div className="flex items-center justify-between flex-wrap gap-4 mb-6">
               <div>
                 <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-2">
-                  Prendre rendez-vous
+                  Choisissez votre rendez-vous
                 </h2>
                 <p className="text-white/60 text-sm sm:text-base">
-                  Sélectionnez le créneau qui vous convient, la réservation se fait directement sur Calendly.
+                  Réservation gérée par Odoo : créneaux à jour, confirmation automatique et suivi intégré.
                 </p>
               </div>
               <a
-                href={CALENDLY_URL}
+                href={ODOO_APPOINTMENT_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary flex items-center justify-center gap-2"
               >
                 <Calendar className="w-5 h-5" />
-                Ouvrir Calendly
+                Ouvrir la page rendez-vous
               </a>
             </div>
 
-            <div className="relative w-full" style={{ paddingTop: '65%' }}>
+            <div className="relative w-full" style={{ paddingTop: '120%' }}>
               <iframe
-                src={CALENDLY_URL}
+                src={ODOO_APPOINTMENT_URL}
                 className="absolute inset-0 w-full h-full rounded-2xl border-0"
-                title="Calendly - Prise de rendez-vous"
+                title="Barber Industries - Rendez-vous Odoo"
               />
             </div>
           </div>
