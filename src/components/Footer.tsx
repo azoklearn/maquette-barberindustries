@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Instagram, Facebook, MapPin, Phone, Mail, Clock } from 'lucide-react'
+import { Instagram, Phone, Mail, Clock } from 'lucide-react'
 
 const footerLinks = {
   navigation: [
@@ -53,24 +53,14 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/barber_industries"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 
                          text-white/60 hover:bg-accent-rose hover:text-white transition-all duration-300"
-                aria-label="Instagram"
+                aria-label="Instagram Barber Industries"
               >
                 <Instagram size={20} />
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 
-                         text-white/60 hover:bg-primary-blue hover:text-white transition-all duration-300"
-                aria-label="Facebook"
-              >
-                <Facebook size={20} />
               </a>
             </div>
           </div>

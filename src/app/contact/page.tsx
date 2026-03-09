@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Phone, Mail, MapPin, Clock, Send, Instagram, Facebook, Check } from 'lucide-react'
+import { Phone, Mail, MapPin, Clock, Send, Instagram, Check } from 'lucide-react'
 import Image from 'next/image'
 
 const contactInfo = [
@@ -277,26 +277,26 @@ export default function ContactPage() {
                 <h3 className="text-white font-display text-xl font-semibold mb-6">
                   Suivez-nous
                 </h3>
-                <div className="flex gap-4">
+                <div className="flex flex-col gap-3">
                   <a
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/barber_industries"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-500 to-pink-500
+                    className="flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-500 to-pink-500
                              text-white font-medium rounded-xl hover:shadow-[0_0_30px_rgba(236,72,153,0.3)] transition-all"
                   >
                     <Instagram className="w-5 h-5" />
-                    Instagram
+                    Instagram @barber_industries
                   </a>
                   <a
-                    href="https://facebook.com"
+                    href="https://www.tiktok.com/@barber_industries"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-blue-600
-                             text-white font-medium rounded-xl hover:bg-blue-700 transition-colors"
+                    className="flex items-center justify-center gap-2 px-4 py-3 bg-white/5
+                             text-white font-medium rounded-xl hover:bg-white/10 transition-colors"
                   >
-                    <Facebook className="w-5 h-5" />
-                    Facebook
+                    <span className="text-lg">TikTok</span>
+                    <span className="text-sm text-white/70">@barber_industries</span>
                   </a>
                 </div>
               </div>
