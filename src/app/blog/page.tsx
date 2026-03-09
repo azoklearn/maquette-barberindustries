@@ -10,8 +10,9 @@ export const metadata: Metadata = {
 
 const featuredPost = {
   id: 1,
-  title: 'Les 10 Tendances Coiffure Homme 2026',
-  excerpt: 'Découvrez les coupes qui vont dominer cette année. Du fade moderne au mullet revisité, voici les styles qui feront tourner les têtes.',
+  title: 'Les coupes homme qui vont marquer 2026',
+  excerpt:
+    "Du dégradé flou aux textures naturelles, en passant par les mèches lumineuses : je te montre les styles qui fonctionnent vraiment au quotidien, pas juste sur Instagram.",
   image: 'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=1200&h=600&fit=crop',
   category: 'Tendances',
   author: 'Raphael',
@@ -22,8 +23,9 @@ const featuredPost = {
 const posts = [
   {
     id: 2,
-    title: 'Comment Entretenir Sa Barbe au Quotidien',
-    excerpt: 'Les gestes essentiels pour une barbe saine et stylée. Routine complète et produits recommandés.',
+    title: 'Comment entretenir ta barbe au quotidien (sans y passer 1 heure)',
+    excerpt:
+      "Nettoyage, hydratation, traçage des contours : je te donne une routine simple et réaliste pour avoir une barbe propre, douce et nette tous les jours, même si tu n\'as pas l\'habitude de t\'en occuper.",
     image: 'https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&h=400&fit=crop',
     category: 'Conseils',
     author: 'Raphael',
@@ -32,8 +34,9 @@ const posts = [
   },
   {
     id: 3,
-    title: 'Le Guide du Dégradé Parfait',
-    excerpt: 'Fade, taper, skin fade... Comprendre les différents types de dégradés et choisir celui qui vous correspond.',
+    title: 'Le guide du dégradé parfait : fade, mid fade, taper…',
+    excerpt:
+      "Tu entends parler de fade, taper, mid fade sans vraiment savoir la différence ? On décortique chaque type de dégradé avec des exemples pour que tu saches exactement quoi demander au barber.",
     image: 'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600&h=400&fit=crop',
     category: 'Guides',
     author: 'Raphael',
@@ -42,8 +45,9 @@ const posts = [
   },
   {
     id: 4,
-    title: 'Huile à Barbe : Comment Bien la Choisir',
-    excerpt: 'Ingrédients, textures, parfums... Tout savoir pour trouver l\'huile parfaite pour votre barbe.',
+    title: 'Huile à barbe : laquelle choisir pour ton style et ta peau ?',
+    excerpt:
+      "Huile légère ou plus riche, parfum discret ou marqué, peau sensible ou normale : je t\'explique comment choisir une huile adaptée à ta barbe et éviter les démangeaisons et zones sèches.",
     image: 'https://images.unsplash.com/photo-1621607505837-4c5b7e894c0a?w=600&h=400&fit=crop',
     category: 'Produits',
     author: 'Raphael',
@@ -52,8 +56,9 @@ const posts = [
   },
   {
     id: 5,
-    title: 'Coiffure et Morphologie : Trouver Son Style',
-    excerpt: 'Quelle coupe pour quelle forme de visage ? Notre guide pour sublimer vos traits.',
+    title: 'Coiffure et morphologie : trouver LA coupe qui te va',
+    excerpt:
+      "Visage rond, ovale, carré ou allongé : je te montre quelles longueurs, volumes et contours mettent le plus en valeur ta morphologie, avec des exemples concrets que j\'utilise au salon.",
     image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&h=400&fit=crop',
     category: 'Style',
     author: 'Raphael',
@@ -62,8 +67,9 @@ const posts = [
   },
   {
     id: 6,
-    title: 'Les Erreurs à Éviter avec Sa Barbe',
-    excerpt: 'Les faux pas les plus courants et comment les corriger pour une barbe impeccable.',
+    title: '5 erreurs que je vois tout le temps sur les barbes (et comment les éviter)',
+    excerpt:
+      "Raser trop haut, laisser des trous, négliger le cou, utiliser les mauvais produits… Je passe en revue les erreurs les plus fréquentes et je te donne des solutions simples pour les corriger.",
     image: 'https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&h=400&fit=crop',
     category: 'Conseils',
     author: 'Raphael',

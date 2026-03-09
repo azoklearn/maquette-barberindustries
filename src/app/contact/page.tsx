@@ -1,7 +1,6 @@
 'use client'
 
-import { useState } from 'react'
-import { Phone, Mail, MapPin, Clock, Send, Instagram, Check } from 'lucide-react'
+import { Phone, Mail, MapPin, Clock, Instagram } from 'lucide-react'
 import Image from 'next/image'
 
 const contactInfo = [
@@ -36,21 +35,6 @@ const hours = [
 ]
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
-  })
-  const [isSubmitted, setIsSubmitted] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitted(true)
-    setTimeout(() => setIsSubmitted(false), 5000)
-    setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
-  }
 
   return (
     <>
@@ -115,97 +99,67 @@ export default function ContactPage() {
       <section className="section-padding bg-dark">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-            {/* Contact Form */}
-            <div>
-              <h2 className="font-display text-3xl font-bold text-white mb-6">
-                Envoyez-nous un message
-              </h2>
-              <p className="text-white/60 mb-8">
-                Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.
-              </p>
-
-              {isSubmitted && (
-                <div className="mb-8 p-4 bg-green-500/10 border border-green-500/30 rounded-xl flex items-center gap-3">
-                  <Check className="w-5 h-5 text-green-500" />
-                  <span className="text-green-500">Message envoyé avec succès !</span>
-                </div>
-              )}
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-white font-medium mb-2">Nom complet</label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-6 py-4 bg-dark-light border border-white/10 rounded-xl text-white
-                               placeholder:text-white/30 focus:outline-none focus:border-accent-rose transition-colors"
-                      placeholder="Votre nom"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-white font-medium mb-2">Téléphone</label>
-                    <input
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-6 py-4 bg-dark-light border border-white/10 rounded-xl text-white
-                               placeholder:text-white/30 focus:outline-none focus:border-accent-rose transition-colors"
-                      placeholder="06 00 00 00 00"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-white font-medium mb-2">Email</label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-6 py-4 bg-dark-light border border-white/10 rounded-xl text-white
-                             placeholder:text-white/30 focus:outline-none focus:border-accent-rose transition-colors"
-                    placeholder="votre@email.com"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-white font-medium mb-2">Sujet</label>
-                  <select
-                    value={formData.subject}
-                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full px-6 py-4 bg-dark-light border border-white/10 rounded-xl text-white
-                             focus:outline-none focus:border-accent-rose transition-colors"
+            {/* Contact Direct */}
+            <div className="space-y-8">
+              <div>
+                <h2 className="font-display text-3xl font-bold text-white mb-4">
+                  Contact direct
+                </h2>
+                <p className="text-white/60 mb-6">
+                  Pour toute question ou prise de rendez-vous, contacte-nous par téléphone, email
+                  ou via les réseaux sociaux.
+                </p>
+                <div className="space-y-4">
+                  <a
+                    href="tel:0620540945"
+                    className="flex items-center gap-3 text-white/80 hover:text-accent-rose transition-colors"
                   >
-                    <option value="">Sélectionnez un sujet</option>
-                    <option value="reservation">Question sur une réservation</option>
-                    <option value="services">Information sur les services</option>
-                    <option value="boutique">Question sur la boutique</option>
-                    <option value="partenariat">Proposition de partenariat</option>
-                    <option value="autre">Autre</option>
-                  </select>
+                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
+                      <Phone className="w-5 h-5 text-accent-rose" />
+                    </div>
+                    <div>
+                      <span className="block text-xs text-white/50 uppercase tracking-wider">Téléphone</span>
+                      <span className="font-medium">06 20 54 09 45</span>
+                    </div>
+                  </a>
+                  <a
+                    href="mailto:barber.industries82@gmail.com"
+                    className="flex items-center gap-3 text-white/80 hover:text-accent-rose transition-colors"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
+                      <Mail className="w-5 h-5 text-accent-rose" />
+                    </div>
+                    <div>
+                      <span className="block text-xs text-white/50 uppercase tracking-wider">Email</span>
+                      <span className="font-medium">barber.industries82@gmail.com</span>
+                    </div>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/barber_industries"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-white/80 hover:text-accent-rose transition-colors"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
+                      <Instagram className="w-5 h-5 text-accent-rose" />
+                    </div>
+                    <div>
+                      <span className="block text-xs text-white/50 uppercase tracking-wider">Instagram</span>
+                      <span className="font-medium">@barber_industries</span>
+                    </div>
+                  </a>
                 </div>
+              </div>
 
-                <div>
-                  <label className="block text-white font-medium mb-2">Message</label>
-                  <textarea
-                    required
-                    rows={5}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-6 py-4 bg-dark-light border border-white/10 rounded-xl text-white
-                             placeholder:text-white/30 focus:outline-none focus:border-accent-rose transition-colors resize-none"
-                    placeholder="Votre message..."
-                  />
-                </div>
-
-                <button type="submit" className="btn-primary w-full sm:w-auto">
-                  <Send className="w-5 h-5 mr-2" />
-                  Envoyer le message
-                </button>
-              </form>
+              <div className="card-premium p-6">
+                <h3 className="text-white font-display text-xl font-semibold mb-3">
+                  Infos pratiques
+                </h3>
+                <p className="text-white/60 text-sm">
+                  Barber Industries — Barbershop premium, spécialisé coupe homme & barbe, au cœur
+                  de Montauban.
+                </p>
+              </div>
             </div>
 
             {/* Sidebar */}
@@ -215,7 +169,7 @@ export default function ContactPage() {
                 <div className="flex items-center gap-4 mb-6">
                   <div className="relative w-20 h-20 rounded-full overflow-hidden">
                     <Image
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop"
+                      src="/raph.jpeg"
                       alt="Raphael"
                       fill
                       className="object-cover"
