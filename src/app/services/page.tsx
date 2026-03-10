@@ -14,7 +14,7 @@ const services = [
     title: 'Coupes Homme',
     description: 'Des coupes sur mesure qui subliment votre style. Nos barbiers experts maîtrisent toutes les techniques pour vous offrir le résultat parfait.',
     items: [
-      { name: 'Coupe Classique', price: '20€', duration: '30 min', description: 'Coupe traditionnelle soignée' },
+      { name: 'Coupe Classique', price: '15€ (coupe) + 5€ (barbe)', duration: '30 min', description: 'Coupe classique avec option barbe à +5€' },
       { name: 'Coupe Tendance', price: '25€', duration: '40 min', description: 'Coupe moderne avec dégradé' },
       { name: 'Coupe Premium', price: '35€', duration: '50 min', description: 'Coupe personnalisée + shampoing + coiffage' },
       { name: 'Coupe Enfant (-12 ans)', price: '15€', duration: '25 min', description: 'Coupe adaptée aux plus jeunes' },
@@ -128,13 +128,25 @@ export default function ServicesPage() {
                       <span className="text-2xl font-display font-bold text-accent-rose">
                         {item.price}
                       </span>
-                      <Link
-                        href="/reservation"
-                        className="px-4 py-2 bg-white/5 hover:bg-gradient-to-r hover:from-primary-blue hover:to-accent-rose 
-                                 text-white text-sm font-medium rounded-full transition-all duration-300"
-                      >
-                        Réserver
-                      </Link>
+                      {service.id === 'coupe' && item.name === 'Coupe Classique' ? (
+                        <a
+                          href="https://barber-industries.odoo.com/appointment/5"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-4 py-2 bg-white/5 hover:bg-gradient-to-r hover:from-primary-blue hover:to-accent-rose 
+                                   text-white text-sm font-medium rounded-full transition-all duration-300"
+                        >
+                          Réserver
+                        </a>
+                      ) : (
+                        <Link
+                          href="/reservation"
+                          className="px-4 py-2 bg-white/5 hover:bg-gradient-to-r hover:from-primary-blue hover:to-accent-rose 
+                                   text-white text-sm font-medium rounded-full transition-all duration-300"
+                        >
+                          Réserver
+                        </Link>
+                      )}
                     </div>
                   </div>
                 ))}
