@@ -1,4 +1,4 @@
-import { Scissors, CircleDot, Package, Sparkles, Clock, Check } from 'lucide-react'
+import { Scissors, Sparkles, Clock } from 'lucide-react'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
@@ -11,46 +11,30 @@ const services = [
   {
     id: 'coupe',
     icon: Scissors,
-    title: 'Coupes Homme',
-    description: 'Des coupes sur mesure qui subliment votre style. Nos barbiers experts maîtrisent toutes les techniques pour vous offrir le résultat parfait.',
+    title: 'Prestations',
+    description:
+      'Sélectionne le type de rendez-vous qui te correspond. Trois prestations, simples et efficaces, pour coller à ton rythme et à ton style.',
     items: [
-      { name: 'Coupe Classique', price: '15€ (coupe) + 5€ (barbe)', duration: '30 min', description: 'Coupe classique avec option barbe à +5€' },
-      { name: 'Coupe Tendance', price: '25€', duration: '40 min', description: 'Coupe moderne avec dégradé' },
-      { name: 'Coupe Premium', price: '35€', duration: '50 min', description: 'Coupe personnalisée + shampoing + coiffage' },
-      { name: 'Coupe Enfant (-12 ans)', price: '15€', duration: '25 min', description: 'Coupe adaptée aux plus jeunes' },
+      {
+        name: 'Coupe Classique',
+        price: '15€ + 5€ barbe',
+        duration: '30 min',
+        description: 'La coupe de base, propre et efficace. Option barbe à +5€.',
+      },
+      {
+        name: 'Coupe Classique - Créneaux supplémentaires',
+        price: '15€ + 5€ barbe',
+        duration: '30 min',
+        description: 'Quand les créneaux classiques sont complets, avec les mêmes prestations.',
+      },
+      {
+        name: 'Coupe Soirée',
+        price: '25€',
+        duration: '30 min',
+        description: 'Créneaux après 19h, parfait juste avant une soirée ou un événement.',
+      },
     ],
   },
-  {
-    id: 'barbe',
-    icon: CircleDot,
-    title: 'Barbe & Rasage',
-    description: 'Sculptez votre barbe avec précision. Du rasage traditionnel à l\'entretien quotidien, nous prenons soin de votre pilosité faciale.',
-    items: [
-      { name: 'Taille de Barbe', price: '15€', duration: '20 min', description: 'Taille et mise en forme' },
-      { name: 'Rasage Traditionnel', price: '20€', duration: '30 min', description: 'Rasage au coupe-chou' },
-      { name: 'Entretien Barbe Complète', price: '25€', duration: '35 min', description: 'Taille + soins + huile' },
-      { name: 'Contours Barbe', price: '10€', duration: '15 min', description: 'Définition des contours' },
-    ],
-  },
-  {
-    id: 'forfaits',
-    icon: Package,
-    title: 'Forfaits',
-    description: 'Nos formules complètes pour un service all-inclusive. Profitez de nos meilleures prestations à prix avantageux.',
-    items: [
-      { name: 'Forfait Essentiel', price: '30€', duration: '45 min', description: 'Coupe + Taille barbe' },
-      { name: 'Forfait Premium', price: '45€', duration: '60 min', description: 'Coupe tendance + Barbe complète' },
-      { name: 'Forfait VIP', price: '60€', duration: '90 min', description: 'Coupe premium + Rasage + Soins' },
-      { name: 'Forfait Père & Fils', price: '40€', duration: '60 min', description: '2 coupes (1 adulte + 1 enfant)' },
-    ],
-  },
-]
-
-const extras = [
-  { name: 'Shampoing', price: '+5€' },
-  { name: 'Soins Cheveux', price: '+10€' },
-  { name: 'Coloration Barbe', price: '+15€' },
-  { name: 'Masque Visage', price: '+12€' },
 ]
 
 export default function ServicesPage() {
@@ -128,25 +112,13 @@ export default function ServicesPage() {
                       <span className="text-2xl font-display font-bold text-accent-rose">
                         {item.price}
                       </span>
-                      {service.id === 'coupe' && item.name === 'Coupe Classique' ? (
-                        <a
-                          href="https://barber-industries.odoo.com/appointment/5"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-4 py-2 bg-white/5 hover:bg-gradient-to-r hover:from-primary-blue hover:to-accent-rose 
-                                   text-white text-sm font-medium rounded-full transition-all duration-300"
-                        >
-                          Réserver
-                        </a>
-                      ) : (
-                        <Link
-                          href="/reservation"
-                          className="px-4 py-2 bg-white/5 hover:bg-gradient-to-r hover:from-primary-blue hover:to-accent-rose 
-                                   text-white text-sm font-medium rounded-full transition-all duration-300"
-                        >
-                          Réserver
-                        </Link>
-                      )}
+                      <Link
+                        href="/reservation"
+                        className="px-4 py-2 bg-white/5 hover:bg-gradient-to-r hover:from-primary-blue hover:to-accent-rose 
+                                 text-white text-sm font-medium rounded-full transition-all durée-300"
+                      >
+                        Réserver
+                      </Link>
                     </div>
                   </div>
                 ))}
@@ -155,31 +127,6 @@ export default function ServicesPage() {
           </div>
         </section>
       ))}
-
-      {/* Extras Section */}
-      <section className="section-padding bg-dark-light">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <Sparkles className="w-8 h-8 text-accent-rose mx-auto mb-4" />
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mb-4">
-              Services Additionnels
-            </h2>
-            <p className="text-white/60">Personnalisez votre expérience</p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-            {extras.map((extra) => (
-              <div
-                key={extra.name}
-                className="card-premium p-4 text-center"
-              >
-                <span className="text-white font-medium">{extra.name}</span>
-                <span className="block text-accent-rose font-semibold mt-1">{extra.price}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="section-padding bg-gradient-to-br from-primary-blue to-accent-rose">
