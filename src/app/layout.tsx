@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import SiteLaunchLoader from '@/components/SiteLaunchLoader'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
@@ -26,6 +27,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className="antialiased">
+        <SiteLaunchLoader />
         <Header />
         <main className="min-h-screen">
           {children}
