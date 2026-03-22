@@ -1,82 +1,16 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, Clock, User, Tag } from 'lucide-react'
+import { ArrowRight, Clock, Tag } from 'lucide-react'
 import type { Metadata } from 'next'
+import { blogPosts } from '@/data/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Blog | Barber Industries',
   description: 'Conseils grooming, tendances coiffure homme, guides barbe et astuces style. Le blog Barber Industries pour être au top de votre look.',
 }
 
-const featuredPost = {
-  id: 1,
-  title: 'Les coupes homme qui vont marquer 2026',
-  excerpt:
-    "Du dégradé flou aux textures naturelles, en passant par les mèches lumineuses : je te montre les styles qui fonctionnent vraiment au quotidien, pas juste sur Instagram.",
-  image: 'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=1200&h=600&fit=crop',
-  category: 'Tendances',
-  author: 'Raphael',
-  date: '15 Jan 2026',
-  readTime: '5 min',
-}
-
-const posts = [
-  {
-    id: 2,
-    title: 'Comment entretenir ta barbe au quotidien (sans y passer 1 heure)',
-    excerpt:
-      "Nettoyage, hydratation, traçage des contours : je te donne une routine simple et réaliste pour avoir une barbe propre, douce et nette tous les jours, même si tu n\'as pas l\'habitude de t\'en occuper.",
-    image: 'https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&h=400&fit=crop',
-    category: 'Conseils',
-    author: 'Raphael',
-    date: '10 Jan 2026',
-    readTime: '4 min',
-  },
-  {
-    id: 3,
-    title: 'Le guide du dégradé parfait : fade, mid fade, taper…',
-    excerpt:
-      "Tu entends parler de fade, taper, mid fade sans vraiment savoir la différence ? On décortique chaque type de dégradé avec des exemples pour que tu saches exactement quoi demander au barber.",
-    image: 'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600&h=400&fit=crop',
-    category: 'Guides',
-    author: 'Raphael',
-    date: '5 Jan 2026',
-    readTime: '6 min',
-  },
-  {
-    id: 4,
-    title: 'Huile à barbe : laquelle choisir pour ton style et ta peau ?',
-    excerpt:
-      "Huile légère ou plus riche, parfum discret ou marqué, peau sensible ou normale : je t\'explique comment choisir une huile adaptée à ta barbe et éviter les démangeaisons et zones sèches.",
-    image: 'https://images.unsplash.com/photo-1621607505837-4c5b7e894c0a?w=600&h=400&fit=crop',
-    category: 'Produits',
-    author: 'Raphael',
-    date: '28 Dec 2025',
-    readTime: '3 min',
-  },
-  {
-    id: 5,
-    title: 'Coiffure et morphologie : trouver LA coupe qui te va',
-    excerpt:
-      "Visage rond, ovale, carré ou allongé : je te montre quelles longueurs, volumes et contours mettent le plus en valeur ta morphologie, avec des exemples concrets que j\'utilise au salon.",
-    image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&h=400&fit=crop',
-    category: 'Style',
-    author: 'Raphael',
-    date: '20 Dec 2025',
-    readTime: '5 min',
-  },
-  {
-    id: 6,
-    title: '5 erreurs que je vois tout le temps sur les barbes (et comment les éviter)',
-    excerpt:
-      "Raser trop haut, laisser des trous, négliger le cou, utiliser les mauvais produits… Je passe en revue les erreurs les plus fréquentes et je te donne des solutions simples pour les corriger.",
-    image: 'https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&h=400&fit=crop',
-    category: 'Conseils',
-    author: 'Raphael',
-    date: '15 Dec 2025',
-    readTime: '4 min',
-  },
-]
+const featuredPost = blogPosts[0]
+const posts = blogPosts.slice(1)
 
 const categories = ['Tous', 'Tendances', 'Conseils', 'Guides', 'Style', 'Produits']
 
@@ -169,7 +103,7 @@ export default function BlogPage() {
       {/* Featured Post */}
       <section className="section-padding bg-dark">
         <div className="container-custom">
-          <Link href={`/blog/${featuredPost.id}`} className="group block">
+          <Link href={`/blog/${featuredPost.slug}`} className="group block">
             <div className="relative rounded-3xl overflow-hidden">
               <div className="aspect-[21/9] relative">
                 <Image
@@ -227,7 +161,7 @@ export default function BlogPage() {
             {posts.map((post) => (
               <Link
                 key={post.id}
-                href={`/blog/${post.id}`}
+                href={`/blog/${post.slug}`}
                 className="group card-premium overflow-hidden"
               >
                 {/* Image */}

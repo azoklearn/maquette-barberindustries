@@ -115,7 +115,7 @@ export default function ServicesPage() {
                       <Link
                         href="/reservation"
                         className="px-4 py-2 bg-white/5 hover:bg-gradient-to-r hover:from-primary-blue hover:to-accent-rose 
-                                 text-white text-sm font-medium rounded-full transition-all durée-300"
+                                 text-white text-sm font-medium rounded-full transition-all duration-300"
                       >
                         Réserver
                       </Link>
