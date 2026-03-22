@@ -1,13 +1,27 @@
-import { Scissors, Sparkles, Clock } from 'lucide-react'
+import { Scissors, Clock } from 'lucide-react'
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import {
+  ODOO_APPOINTMENT_COUPE_CLASSIQUE,
+  ODOO_APPOINTMENT_CRENEAUX_SUPPLEMENTAIRES,
+  ODOO_APPOINTMENT_COUPE_SOIREE,
+} from '@/constants/booking'
 
 export const metadata: Metadata = {
   title: 'Services | Barber Industries',
   description: 'Découvrez nos services de coupe homme, taille de barbe et forfaits premium. Des prestations de qualité pour révéler votre style.',
 }
 
-const services = [
+type ServiceItem = {
+  name: string
+  price: string
+  duration: string
+  description: string
+  /** Lien Odoo direct (ex. coupe classique) ; sinon page réservation du site */
+  bookingHref?: string
+}
+
+const services: { id: string; icon: typeof Scissors; title: string; description: string; items: ServiceItem[] }[] = [
   {
     id: 'coupe',
     icon: Scissors,
@@ -20,18 +34,21 @@ const services = [
         price: '15€ + 5€ barbe',
         duration: '30 min',
         description: 'La coupe de base, propre et efficace. Option barbe à +5€.',
+        bookingHref: ODOO_APPOINTMENT_COUPE_CLASSIQUE,
       },
       {
         name: 'Coupe Classique - Créneaux supplémentaires',
         price: '15€ + 5€ barbe',
         duration: '30 min',
         description: 'Quand les créneaux classiques sont complets, avec les mêmes prestations.',
+        bookingHref: ODOO_APPOINTMENT_CRENEAUX_SUPPLEMENTAIRES,
       },
       {
         name: 'Coupe Soirée',
         price: '25€',
         duration: '30 min',
         description: 'Créneaux après 19h, parfait juste avant une soirée ou un événement.',
+        bookingHref: ODOO_APPOINTMENT_COUPE_SOIREE,
       },
     ],
   },
@@ -112,13 +129,26 @@ export default function ServicesPage() {
                       <span className="text-2xl font-display font-bold text-accent-rose">
                         {item.price}
                       </span>
-                      <Link
-                        href="/reservation"
-                        className="px-4 py-2 bg-white/5 hover:bg-gradient-to-r hover:from-primary-blue hover:to-accent-rose 
-                                 text-white text-sm font-medium rounded-full transition-all duration-300"
-                      >
-                        Réserver
-                      </Link>
+                      {(() => {
+                        const href = item.bookingHref ?? '/reservation'
+                        const isExternal = href.startsWith('http')
+                        const className =
+                          'px-4 py-2 bg-white/5 hover:bg-gradient-to-r hover:from-primary-blue hover:to-accent-rose text-white text-sm font-medium rounded-full transition-all duration-300'
+                        return isExternal ? (
+                          <a
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={className}
+                          >
+                            Réserver
+                          </a>
+                        ) : (
+                          <Link href={href} className={className}>
+                            Réserver
+                          </Link>
+                        )
+                      })()}
                     </div>
                   </div>
                 ))}

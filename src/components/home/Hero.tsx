@@ -4,6 +4,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, Scissors, Star } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import {
+  ODOO_APPOINTMENT_COUPE_CLASSIQUE,
+  ODOO_APPOINTMENT_CRENEAUX_SUPPLEMENTAIRES,
+  ODOO_APPOINTMENT_COUPE_SOIREE,
+} from '@/constants/booking'
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false)
@@ -155,7 +160,9 @@ export default function Hero() {
             </p>
             <div className="space-y-3 mb-6">
               <Link
-                href="/reservation"
+                href={ODOO_APPOINTMENT_COUPE_CLASSIQUE}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setShowBookingChoices(false)}
                 className="flex items-center justify-between px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors"
               >
@@ -168,7 +175,9 @@ export default function Hero() {
                 <span className="text-accent-rose text-sm font-semibold">15€ + 5€ barbe</span>
               </Link>
               <Link
-                href="/reservation"
+                href={ODOO_APPOINTMENT_CRENEAUX_SUPPLEMENTAIRES}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setShowBookingChoices(false)}
                 className="flex items-center justify-between px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors"
               >
@@ -181,7 +190,9 @@ export default function Hero() {
                 <span className="text-accent-rose text-sm font-semibold">15€ + 5€ barbe</span>
               </Link>
               <Link
-                href="/reservation"
+                href={ODOO_APPOINTMENT_COUPE_SOIREE}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setShowBookingChoices(false)}
                 className="flex items-center justify-between px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors"
               >

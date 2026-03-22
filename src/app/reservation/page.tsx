@@ -1,9 +1,7 @@
 'use client'
 
 import { Calendar } from 'lucide-react'
-
-// Page officielle de prise de rendez-vous Odoo
-const ODOO_APPOINTMENT_URL = 'https://barber-industries.odoo.com/appointment'
+import { ODOO_APPOINTMENT_URL } from '@/constants/booking'
 
 export default function ReservationPage() {
   return (
