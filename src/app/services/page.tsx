@@ -1,11 +1,6 @@
 import { Scissors, Clock } from 'lucide-react'
-import Link from 'next/link'
 import type { Metadata } from 'next'
-import {
-  ODOO_APPOINTMENT_COUPE_CLASSIQUE,
-  ODOO_APPOINTMENT_CRENEAUX_SUPPLEMENTAIRES,
-  ODOO_APPOINTMENT_COUPE_SOIREE,
-} from '@/constants/booking'
+import { BOOKING_URL } from '@/constants/booking'
 
 export const metadata: Metadata = {
   title: 'Services | Barber Industries',
@@ -17,8 +12,6 @@ type ServiceItem = {
   price: string
   duration: string
   description: string
-  /** Lien Odoo direct (ex. coupe classique) ; sinon page réservation du site */
-  bookingHref?: string
 }
 
 const services: { id: string; icon: typeof Scissors; title: string; description: string; items: ServiceItem[] }[] = [
@@ -27,28 +20,31 @@ const services: { id: string; icon: typeof Scissors; title: string; description:
     icon: Scissors,
     title: 'Prestations',
     description:
-      'Sélectionne le type de rendez-vous qui te correspond. Trois prestations, simples et efficaces, pour coller à ton rythme et à ton style.',
+      'Sélectionne le type de rendez-vous qui te correspond. Des prestations simples et efficaces, pour coller à ton rythme et à ton style.',
     items: [
       {
-        name: 'Coupe Classique',
-        price: '15€ + 5€ barbe',
+        name: "Coupe d'entretien",
+        price: '20 €',
         duration: '30 min',
-        description: 'La coupe de base, propre et efficace. Option barbe à +5€.',
-        bookingHref: ODOO_APPOINTMENT_COUPE_CLASSIQUE,
+        description: "Une coupe rapide pour entretenir votre style entre deux rendez-vous.",
       },
       {
-        name: 'Coupe Classique - Créneaux supplémentaires',
-        price: '15€ + 5€ barbe',
+        name: "Coupe d'entretien + barbe",
+        price: '25 €',
         duration: '30 min',
-        description: 'Quand les créneaux classiques sont complets, avec les mêmes prestations.',
-        bookingHref: ODOO_APPOINTMENT_CRENEAUX_SUPPLEMENTAIRES,
+        description: "L'entretien de la coupe accompagné d'une taille de barbe soignée.",
       },
       {
-        name: 'Coupe Soirée',
-        price: '25€',
+        name: 'La coupe',
+        price: '25 €',
         duration: '30 min',
-        description: 'Créneaux après 19h, parfait juste avant une soirée ou un événement.',
-        bookingHref: ODOO_APPOINTMENT_COUPE_SOIREE,
+        description: 'La coupe complète, réalisée avec précision pour révéler votre style.',
+      },
+      {
+        name: 'La coupe + barbe',
+        price: '35 €',
+        duration: '45 min',
+        description: 'La coupe complète associée à un travail de barbe expert.',
       },
     ],
   },
@@ -129,26 +125,14 @@ export default function ServicesPage() {
                       <span className="text-2xl font-display font-bold text-accent-rose">
                         {item.price}
                       </span>
-                      {(() => {
-                        const href = item.bookingHref ?? '/reservation'
-                        const isExternal = href.startsWith('http')
-                        const className =
-                          'px-4 py-2 bg-white/5 hover:bg-gradient-to-r hover:from-primary-blue hover:to-accent-rose text-white text-sm font-medium rounded-full transition-all duration-300'
-                        return isExternal ? (
-                          <a
-                            href={href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={className}
-                          >
-                            Réserver
-                          </a>
-                        ) : (
-                          <Link href={href} className={className}>
-                            Réserver
-                          </Link>
-                        )
-                      })()}
+                      <a
+                        href={BOOKING_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 bg-white/5 hover:bg-gradient-to-r hover:from-primary-blue hover:to-accent-rose text-white text-sm font-medium rounded-full transition-all duration-300"
+                      >
+                        Réserver
+                      </a>
                     </div>
                   </div>
                 ))}
@@ -168,12 +152,14 @@ export default function ServicesPage() {
             Réservez en ligne en quelques clics ou appelez-nous directement.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/reservation"
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-4 bg-white text-dark font-semibold rounded-full hover:bg-white/90 transition-all hover:scale-105"
             >
               Réserver en ligne
-            </Link>
+            </a>
             <a
               href="tel:0620540945"
               className="px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-full hover:bg-white/10 transition-all"

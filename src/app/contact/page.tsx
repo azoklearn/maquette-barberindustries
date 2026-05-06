@@ -2,6 +2,7 @@
 
 import { Phone, Mail, MapPin, Clock, Instagram } from 'lucide-react'
 import Image from 'next/image'
+import { BOOKING_URL } from '@/constants/booking'
 
 const contactInfo = [
   {
@@ -269,8 +270,10 @@ export default function ContactPage() {
             Réservez en ligne en quelques clics et venez découvrir l'expérience Barber Industries.
           </p>
           <a
-            href="/reservation"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-dark font-semibold rounded-full 
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-dark font-semibold rounded-full
                      hover:bg-white/90 transition-all hover:scale-105"
           >
             Réserver maintenant

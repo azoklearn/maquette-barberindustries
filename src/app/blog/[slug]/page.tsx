@@ -4,6 +4,7 @@ import { ArrowLeft, Clock } from 'lucide-react'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { blogPosts, getPostBySlug, getAllSlugs } from '@/data/blog-posts'
+import { BOOKING_URL } from '@/constants/booking'
 
 type Props = { params: { slug: string } }
 
@@ -143,9 +144,14 @@ export default function BlogArticlePage({ params }: Props) {
       </section>
 
       <section className="py-12 bg-dark text-center">
-        <Link href="/reservation" className="btn-primary inline-flex">
+        <a
+          href={BOOKING_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-primary inline-flex"
+        >
           Prendre rendez-vous
-        </Link>
+        </a>
       </section>
     </>
   )

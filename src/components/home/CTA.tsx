@@ -1,7 +1,7 @@
 'use client'
 
-import Link from 'next/link'
 import { Calendar, Phone, ArrowRight } from 'lucide-react'
+import { BOOKING_URL } from '@/constants/booking'
 
 export default function CTA() {
   return (
@@ -42,8 +42,10 @@ export default function CTA() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/reservation"
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-dark font-semibold rounded-full
                        transition-all duration-300 hover:bg-white/90 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)]
                        hover:scale-105"
@@ -51,7 +53,7 @@ export default function CTA() {
               <Calendar className="w-5 h-5" />
               <span>Réserver maintenant</span>
               <ArrowRight className="w-5 h-5" />
-            </Link>
+            </a>
             <a
               href="tel:0620540945"
               className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/30 text-white font-semibold 

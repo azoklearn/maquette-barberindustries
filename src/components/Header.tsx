@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X, Phone, Calendar } from 'lucide-react'
+import { BOOKING_URL } from '@/constants/booking'
 
 const navLinks = [
   { href: '/', label: 'Accueil' },
@@ -77,15 +78,17 @@ export default function Header() {
               <Phone size={18} />
               <span>06 20 54 09 45</span>
             </a>
-            <Link
-              href="/reservation"
-              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-blue to-accent-rose 
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-blue to-accent-rose
                        rounded-full text-sm font-semibold text-white transition-all duration-300
                        hover:shadow-[0_0_30px_rgba(236,72,153,0.4)] hover:scale-105"
             >
               <Calendar size={18} />
               Réserver
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -126,15 +129,17 @@ export default function Header() {
                 <Phone size={20} />
                 <span>06 20 54 09 45</span>
               </a>
-              <Link
-                href="/reservation"
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-blue to-accent-rose 
+                className="flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-blue to-accent-rose
                          rounded-full font-semibold text-white"
               >
                 <Calendar size={20} />
                 Réserver maintenant
-              </Link>
+              </a>
             </div>
           </div>
         </div>

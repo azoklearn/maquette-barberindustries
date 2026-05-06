@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Instagram, Phone, Mail, Clock } from 'lucide-react'
+import { BOOKING_URL } from '@/constants/booking'
 
 const footerLinks = {
   navigation: [
@@ -11,10 +12,10 @@ const footerLinks = {
     { href: '/contact', label: 'Contact' },
   ],
   services: [
-    { href: '/services#coupe', label: 'Coupe Homme' },
-    { href: '/services#barbe', label: 'Taille de Barbe' },
-    { href: '/services#forfaits', label: 'Forfaits' },
-    { href: '/reservation', label: 'Réservation' },
+    { href: '/services#coupe', label: 'Coupe Homme', external: false },
+    { href: '/services#barbe', label: 'Taille de Barbe', external: false },
+    { href: '/services#forfaits', label: 'Forfaits', external: false },
+    { href: BOOKING_URL, label: 'Réservation', external: true },
   ],
 }
 
@@ -88,12 +89,23 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-white/60 hover:text-accent-rose transition-colors duration-300 text-sm"
-                  >
-                    {link.label}
-                  </Link>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white/60 hover:text-accent-rose transition-colors duration-300 text-sm"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-white/60 hover:text-accent-rose transition-colors duration-300 text-sm"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
